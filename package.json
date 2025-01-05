@@ -55,7 +55,7 @@
     "@types/react-dom": "18.3.5",
     "esbuild": "0.24.0",
     "tsx": "4.19.2",
-    "typescript": "5.6.3"
+    "typescript": "5.7.2"
   },
   "peerDependencies": {
     "react": "18.3.1",
