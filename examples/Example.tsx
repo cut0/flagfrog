@@ -1,4 +1,4 @@
-import { FlagRenderer, flagHandler, flagSwitcher } from "flag-tools";
+import { FlagRenderer, flagHandler, flagSwitcher } from "flagfrog";
 import type React from "react";
 import { useCallback, useMemo } from "react";
 import type { FC } from "react";

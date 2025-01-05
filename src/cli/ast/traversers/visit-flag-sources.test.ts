@@ -1,13 +1,16 @@
 import assert from "node:assert";
 import { describe, test } from "node:test";
 import { Project } from "ts-morph";
-import { FLAG_HANDLER, FLAG_RENDERER, FLAG_SWITCHER } from "../../constants";
+import {
+  FLAG_HANDLER,
+  FLAG_RENDERER,
+  FLAG_SWITCHER,
+  LIBRARY_NAME,
+} from "../../constants";
 import { createVisitFlagSources } from "./visit-flag-sources";
 
-const LIB_NAME = "flag-tools";
-
 describe(createVisitFlagSources.name, () => {
-  test("Should handle no imports from flag-tools", ({ mock }) => {
+  test("Should handle no imports from flagfrog", ({ mock }) => {
     const project = new Project();
     project.createSourceFile(
       "file3.ts",
@@ -28,7 +31,7 @@ describe(createVisitFlagSources.name, () => {
     const source = project.createSourceFile(
       "file1.ts",
       `
-    import { ${FLAG_HANDLER} } from '${LIB_NAME}';
+    import { ${FLAG_HANDLER} } from '${LIBRARY_NAME}';
   `,
     );
 
@@ -48,7 +51,7 @@ describe(createVisitFlagSources.name, () => {
     const source = project.createSourceFile(
       "file2.ts",
       `
-    import { ${FLAG_RENDERER}, ${FLAG_SWITCHER} } from '${LIB_NAME}';
+    import { ${FLAG_RENDERER}, ${FLAG_SWITCHER} } from '${LIBRARY_NAME}';
   `,
     );
 
@@ -72,13 +75,13 @@ describe(createVisitFlagSources.name, () => {
     const source4 = project.createSourceFile(
       "file4.ts",
       `
-    import { ${FLAG_HANDLER} } from '${LIB_NAME}';
+    import { ${FLAG_HANDLER} } from '${LIBRARY_NAME}';
   `,
     );
     const source5 = project.createSourceFile(
       "file5.ts",
       `
-    import { ${FLAG_RENDERER} } from '${LIB_NAME}';
+    import { ${FLAG_RENDERER} } from '${LIBRARY_NAME}';
   `,
     );
 

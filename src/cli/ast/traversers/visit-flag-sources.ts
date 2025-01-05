@@ -25,7 +25,7 @@ export const createVisitFlagSources =
         if (moduleSpecifier === LIBRARY_NAME) {
           /**
            * NOTE:
-           * - import { FLAG_RENDERER, FLAG_HANDLER } from 'flag-tools';
+           * - import { FLAG_RENDERER, FLAG_HANDLER } from 'flagfrog';
            */
           const namedImports = importDeclaration.getNamedImports();
 
