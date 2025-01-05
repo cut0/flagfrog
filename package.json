@@ -1,0 +1,57 @@
+{
+  "name": "flagfrog",
+  "version": "0.0.1",
+  "description": "A tool to manage flags within an application",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cut0/flagfrog.git"
+  },
+  "main": "./dist/core/index.js",
+  "types": "./dist/core/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/core/index.d.ts",
+      "import": "./dist/core/index.mjs",
+      "require": "./dist/core/index.js"
+    },
+    "./*": "./*"
+  },
+  "bin": {
+    "flagfrog": "./dist/cli/index.js"
+  },
+  "scripts": {
+    "lint:check": "biome ci",
+    "lint:fix": "biome check --fix",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc -p ./tsconfig.build.json && tsx ./build.ts",
+    "cli:dev": "tsx ./src/cli/main.ts",
+    "cli:prd": "node ./dist/cli/index.js",
+    "test": "node --import tsx --test **/*.test.ts",
+    "release": "pnpm build && changeset publish"
+  },
+  "keywords": ["flag", "feature", "management", "cli", "tool"],
+  "author": "Cut0",
+  "license": "MIT",
+  "files": ["dist"],
+  "dependencies": {
+    "commander": "13.0.0",
+    "inquirer": "12.0.1",
+    "ts-morph": "24.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@changesets/changelog-github": "0.5.0",
+    "@changesets/cli": "2.27.9",
+    "@types/node": "22.9.0",
+    "@types/react": "18.3.18",
+    "@types/react-dom": "18.3.5",
+    "esbuild": "0.24.0",
+    "tsx": "4.19.2",
+    "typescript": "5.6.3"
+  },
+  "peerDependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "packageManager": "pnpm@8.15.8+sha256.691fe176eea9a8a80df20e4976f3dfb44a04841ceb885638fe2a26174f81e65e"
+}
