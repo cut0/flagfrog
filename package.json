@@ -1,6 +1,6 @@
 {
   "name": "flagfrog",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A tool to manage flags within an application",
   "repository": {
     "type": "git",
