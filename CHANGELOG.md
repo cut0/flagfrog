@@ -1,5 +1,11 @@
 # flagfrog
 
+## 0.0.4
+
+### Patch Changes
+
+- 15b9ab5: chore(deps): update node.js to v22.12.0
+
 ## 0.0.3
 
 ### Patch Changes
