@@ -9,7 +9,7 @@ export const createListCommand = (context: Context) => {
   } = context;
 
   command
-    .command("list")
+    .command("list <target>")
     .description("Show files where flags are used")
     .action((target: string) => {
       const flagToolByPath = genFlagMap(target);
