@@ -65,7 +65,7 @@ describe(createRemoveFlag.name, () => {
     } as never)({
       flag: "flag",
       pathListByFlag,
-      enabled: true,
+      flagState: "on",
     } as never);
 
     assert.equal(removeFlagHandler.mock.calls.length, 2);
@@ -73,14 +73,14 @@ describe(createRemoveFlag.name, () => {
       {
         source: pathListByFlag.flag[0].source,
         flag: "flag",
-        actionName: "enableAction",
+        flagState: "on",
       },
     ]);
     assert.deepStrictEqual(removeFlagHandler.mock.calls[1]?.arguments, [
       {
         source: pathListByFlag.flag[1].source,
         flag: "flag",
-        actionName: "enableAction",
+        flagState: "on",
       },
     ]);
     assert.equal(removeFlagSwitcher.mock.calls.length, 1);
@@ -88,7 +88,7 @@ describe(createRemoveFlag.name, () => {
       {
         source: pathListByFlag.flag[0].source,
         flag: "flag",
-        optionName: "enableOption",
+        flagState: "on",
       },
     ]);
     assert.equal(removeFlagRenderer.mock.calls.length, 3);
@@ -96,21 +96,21 @@ describe(createRemoveFlag.name, () => {
       {
         source: pathListByFlag.flag[0].source,
         flag: "flag",
-        propName: "enableComponent",
+        flagState: "on",
       },
     ]);
     assert.deepStrictEqual(removeFlagRenderer.mock.calls[1]?.arguments, [
       {
         source: pathListByFlag.flag[1].source,
         flag: "flag",
-        propName: "enableComponent",
+        flagState: "on",
       },
     ]);
     assert.deepStrictEqual(removeFlagRenderer.mock.calls[2]?.arguments, [
       {
         source: pathListByFlag.flag[2].source,
         flag: "flag",
-        propName: "enableComponent",
+        flagState: "on",
       },
     ]);
     assert.equal(removeUnusedImports.mock.calls.length, 1);
@@ -135,7 +135,7 @@ describe(createRemoveFlag.name, () => {
     } as never)({
       flag: "flag",
       pathListByFlag,
-      enabled: false,
+      flagState: "off",
     } as never);
 
     assert.equal(removeFlagHandler.mock.calls.length, 2);
@@ -143,14 +143,14 @@ describe(createRemoveFlag.name, () => {
       {
         source: pathListByFlag.flag[0].source,
         flag: "flag",
-        actionName: "disableAction",
+        flagState: "off",
       },
     ]);
     assert.deepStrictEqual(removeFlagHandler.mock.calls[1]?.arguments, [
       {
         source: pathListByFlag.flag[1].source,
         flag: "flag",
-        actionName: "disableAction",
+        flagState: "off",
       },
     ]);
     assert.equal(removeFlagSwitcher.mock.calls.length, 1);
@@ -158,7 +158,7 @@ describe(createRemoveFlag.name, () => {
       {
         source: pathListByFlag.flag[0].source,
         flag: "flag",
-        optionName: "disableOption",
+        flagState: "off",
       },
     ]);
     assert.equal(removeFlagRenderer.mock.calls.length, 3);
@@ -166,21 +166,21 @@ describe(createRemoveFlag.name, () => {
       {
         source: pathListByFlag.flag[0].source,
         flag: "flag",
-        propName: "disableComponent",
+        flagState: "off",
       },
     ]);
     assert.deepStrictEqual(removeFlagRenderer.mock.calls[1]?.arguments, [
       {
         source: pathListByFlag.flag[1].source,
         flag: "flag",
-        propName: "disableComponent",
+        flagState: "off",
       },
     ]);
     assert.deepStrictEqual(removeFlagRenderer.mock.calls[2]?.arguments, [
       {
         source: pathListByFlag.flag[2].source,
         flag: "flag",
-        propName: "disableComponent",
+        flagState: "off",
       },
     ]);
     assert.equal(removeUnusedImports.mock.calls.length, 1);

@@ -18,13 +18,13 @@ describe(createRemoveFlagHandler.name, () => {
         createRemoveFlagHandler(project)({
           source,
           flag: "test",
-          actionName: "enableAction",
+          flagState: "on",
         }),
       /name is required/,
     );
   });
 
-  test("Should throw an error if enableAction is missing", () => {
+  test("Should throw an error if on is missing", () => {
     const project = new Project();
     const source = project.createSourceFile(
       "test.ts",
@@ -38,25 +38,25 @@ describe(createRemoveFlagHandler.name, () => {
         createRemoveFlagHandler(project)({
           source,
           flag: "test",
-          actionName: "enableAction",
+          flagState: "on",
         }),
-      /enableAction is required/,
+      /on is required/,
     );
   });
 
-  test("Should replace flagHandler with enableAction function call", () => {
+  test("Should replace flagHandler with on function call", () => {
     const project = new Project();
     const source = project.createSourceFile(
       "test.ts",
       `
-    flagHandler({ name: "test", enableAction: handleExample });
+    flagHandler({ name: "test", on: handleExample });
   `,
     );
 
     createRemoveFlagHandler(project)({
       source,
       flag: "test",
-      actionName: "enableAction",
+      flagState: "on",
     });
 
     const result = source.getText();
@@ -68,14 +68,14 @@ describe(createRemoveFlagHandler.name, () => {
     const source = project.createSourceFile(
       "test.ts",
       `
-    const flag = flagHandler({ name: "test", enableAction: () => handleExample() });
+    const flag = flagHandler({ name: "test", on: () => handleExample() });
   `,
     );
 
     createRemoveFlagHandler(project)({
       source,
       flag: "test",
-      actionName: "enableAction",
+      flagState: "on",
     });
 
     const result = source.getText();
@@ -90,14 +90,14 @@ describe(createRemoveFlagHandler.name, () => {
     const source = project.createSourceFile(
       "test.ts",
       `
-    flagHandler({ name: "test", enableAction: () => { handleExample(); handleExample(); } });
+    flagHandler({ name: "test", on: () => { handleExample(); handleExample(); } });
   `,
     );
 
     createRemoveFlagHandler(project)({
       source,
       flag: "test",
-      actionName: "enableAction",
+      flagState: "on",
     });
 
     const result = source.getText();
@@ -109,20 +109,20 @@ describe(createRemoveFlagHandler.name, () => {
     const source = project.createSourceFile(
       "test.ts",
       `
-    flagHandler({ name: "test", enableAction: handleExample });
+    flagHandler({ name: "test", on: handleExample });
   `,
     );
 
     createRemoveFlagHandler(project)({
       source,
       flag: "other",
-      actionName: "enableAction",
+      flagState: "on",
     });
 
     const result = source.getText();
     assert.strictEqual(
       result.trim(),
-      'flagHandler({ name: "test", enableAction: handleExample });',
+      'flagHandler({ name: "test", on: handleExample });',
     );
   });
 });

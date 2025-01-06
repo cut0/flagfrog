@@ -1,7 +1,7 @@
 import assert from "node:assert";
 import { describe, test } from "node:test";
 import { Project } from "ts-morph";
-import { createRemoveFlagRenderer } from "./remover-renderer";
+import { createRemoveFlagRenderer } from "./remove-renderer";
 
 describe(createRemoveFlagRenderer.name, () => {
   test("Should throw error if name is missing", () => {
@@ -9,7 +9,7 @@ describe(createRemoveFlagRenderer.name, () => {
     const source = project.createSourceFile(
       "test.tsx",
       `
-    <FlagRenderer enableComponent="Hoge" />
+    <FlagRenderer on="Hoge" />
   `,
     );
 
@@ -18,13 +18,13 @@ describe(createRemoveFlagRenderer.name, () => {
         createRemoveFlagRenderer(project)({
           source,
           flag: "text",
-          propName: "enableComponent",
+          flagState: "on",
         }),
       /name is required/,
     );
   });
 
-  test("Should throw error if enableComponent is missing", () => {
+  test("Should throw error if on is missing", () => {
     const project = new Project();
     const source = project.createSourceFile(
       "test.tsx",
@@ -38,9 +38,9 @@ describe(createRemoveFlagRenderer.name, () => {
         createRemoveFlagRenderer(project)({
           source,
           flag: "text",
-          propName: "enableComponent",
+          flagState: "on",
         }),
-      /enableComponent prop is required/,
+      /on prop is required/,
     );
   });
 
@@ -49,14 +49,14 @@ describe(createRemoveFlagRenderer.name, () => {
     const source = project.createSourceFile(
       "test.tsx",
       `
-    <FlagRenderer name="text" enableComponent="Hoge" />
+    <FlagRenderer name="text" on="Hoge" />
   `,
     );
 
     createRemoveFlagRenderer(project)({
       source,
       flag: "text",
-      propName: "enableComponent",
+      flagState: "on",
     });
 
     const result = source.getText();
@@ -68,90 +68,90 @@ describe(createRemoveFlagRenderer.name, () => {
     const source = project.createSourceFile(
       "test.tsx",
       `
-    <FlagRenderer name={"text"} enableComponent={<Hoge />} />
+    <FlagRenderer name={"text"} on={<Hoge />} />
   `,
     );
 
     createRemoveFlagRenderer(project)({
       source,
       flag: "text",
-      propName: "enableComponent",
+      flagState: "on",
     });
 
     const result = source.getText();
     assert.strictEqual(result.trim(), "<Hoge />");
   });
 
-  test("Should handle enableComponent as string literal with JSX expression", () => {
+  test("Should handle on as string literal with JSX expression", () => {
     const project = new Project();
     const source = project.createSourceFile(
       "test.tsx",
       `
-    <FlagRenderer name="text" enableComponent={"Hoge"} />
+    <FlagRenderer name="text" on={"Hoge"} />
   `,
     );
 
     createRemoveFlagRenderer(project)({
       source,
       flag: "text",
-      propName: "enableComponent",
+      flagState: "on",
     });
 
     const result = source.getText();
     assert.strictEqual(result.trim(), "Hoge");
   });
 
-  test("Should handle enableComponent as JSX element", () => {
+  test("Should handle on as JSX element", () => {
     const project = new Project();
     const source = project.createSourceFile(
       "test.tsx",
       `
-    <FlagRenderer name="text" enableComponent={<Hoge />} />
+    <FlagRenderer name="text" on={<Hoge />} />
   `,
     );
 
     createRemoveFlagRenderer(project)({
       source,
       flag: "text",
-      propName: "enableComponent",
+      flagState: "on",
     });
 
     const result = source.getText();
     assert.strictEqual(result.trim(), "<Hoge />");
   });
 
-  test("Should handle other cases for enableComponent", () => {
+  test("Should handle other cases for on", () => {
     const project = new Project();
     const source = project.createSourceFile(
       "test.tsx",
       `
-    <FlagRenderer name="text" enableComponent={Hoge} />
+    <FlagRenderer name="text" on={Hoge} />
   `,
     );
 
     createRemoveFlagRenderer(project)({
       source,
       flag: "text",
-      propName: "enableComponent",
+      flagState: "on",
     });
 
     const result = source.getText();
     assert.strictEqual(result.trim(), "<>{Hoge}</>");
   });
 
-  test("Should handle enableComponent as string literal", () => {
+  test("Should handle on as string literal", () => {
     const project = new Project();
     const source = project.createSourceFile(
       "test.tsx",
       `
-    <FlagRenderer name="text" enableComponent="Hoge" />
+    <FlagRenderer name="text" on="Hoge" />
   `,
     );
 
     createRemoveFlagRenderer(project)({
       source,
       flag: "text",
-      propName: "enableComponent",
+      flagState: "on",
     });
 
     const result = source.getText();

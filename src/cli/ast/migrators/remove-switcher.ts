@@ -5,12 +5,12 @@ import { FLAG_SWITCHER } from "../../constants";
 type Args = {
   source: SourceFile;
   flag: string;
-  optionName: "enableOption" | "disableOption";
+  flagState: "on" | "off";
 };
 
 export const createRemoveFlagSwitcher =
   (_: Project) =>
-  ({ source, flag, optionName }: Args) => {
+  ({ source, flag, flagState }: Args) => {
     source.forEachDescendant((node) => {
       if (node.getKind() === SyntaxKind.CallExpression) {
         const callExpression = node.asKindOrThrow(SyntaxKind.CallExpression);
@@ -55,14 +55,14 @@ export const createRemoveFlagSwitcher =
             }
             {
               const targetProperty = properties.find(
-                (prop) => prop?.name === optionName,
+                (prop) => prop?.name === flagState,
               );
               if (targetProperty?.value == null) {
-                throw new Error(`${optionName} is required`);
+                throw new Error(`${flagState} is required`);
               }
               /**
                * NOTE:
-               * - from: const flag = flagSwitcher({ enableOption: option });
+               * - from: const flag = flagSwitcher({ on: option });
                * - to: const flag = option;
                */
               callExpression.replaceWithText(

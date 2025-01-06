@@ -20,8 +20,8 @@ export const App: FC = () => {
     return flagSwitcher({
       name: "exampleA",
       value: false,
-      enableOption: "A Text",
-      disableOption: "B Text",
+      on: "A Text",
+      off: "B Text",
     });
   }, []);
 
@@ -41,8 +41,8 @@ export const App: FC = () => {
     flagHandler({
       name: "exampleB",
       value: false,
-      enableAction: handleA,
-      disableAction: handleB,
+      on: handleA,
+      off: handleB,
     });
   }, [handleB, handleA]);
 
@@ -52,12 +52,7 @@ export const App: FC = () => {
        * NOTE:
        * - Using FlagRenderer to display different components
        */}
-      <FlagRenderer
-        value={false}
-        name="exampleC"
-        enableComponent={<A />}
-        disableComponent={<B />}
-      />
+      <FlagRenderer value={false} name="exampleC" on={<A />} off={<B />} />
       <button type="button" onClick={handleFlag}>
         Toggle
       </button>
