@@ -1,5 +1,11 @@
 # flagfrog
 
+## 0.1.3
+
+### Patch Changes
+
+- 50ab7f2: chore(deps): update pnpm to v9
+
 ## 0.1.2
 
 ### Patch Changes
