@@ -1,5 +1,11 @@
 # flagfrog
 
+## 0.1.2
+
+### Patch Changes
+
+- 73e21e0: chore: remove unused script option
+
 ## 0.1.1
 
 ### Patch Changes
