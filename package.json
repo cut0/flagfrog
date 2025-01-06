@@ -52,15 +52,15 @@
     "@changesets/changelog-github": "0.5.0",
     "@changesets/cli": "2.27.11",
     "@types/node": "22.10.5",
-    "@types/react": "18.3.18",
-    "@types/react-dom": "18.3.5",
+    "@types/react": "19.0.3",
+    "@types/react-dom": "19.0.2",
     "esbuild": "0.24.2",
     "tsx": "4.19.2",
     "typescript": "5.7.2"
   },
   "peerDependencies": {
-    "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
   },
   "packageManager": "pnpm@9.15.3+sha512.1f79bc245a66eb0b07c5d4d83131240774642caaa86ef7d0434ab47c0d16f66b04e21e0c086eb61e62c77efc4d7f7ec071afad3796af64892fae66509173893a"
 }
