@@ -24,7 +24,7 @@
     "lint:fix": "biome check --fix",
     "typecheck": "tsc --noEmit",
     "build": "tsc -p ./tsconfig.build.json && tsx ./build.ts",
-    "cli:dev": "tsx ./src/cli/main.ts remove \"../web/workspaces/app/**/*.{ts,tsx}\"",
+    "cli:dev": "tsx ./src/cli/main.ts",
     "cli:prd": "node ./dist/cli/index.js",
     "test": "node --import tsx --test **/*.test.ts",
     "release": "pnpm build && changeset publish"
