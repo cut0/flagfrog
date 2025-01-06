@@ -113,7 +113,7 @@ describe(createRemoveFlag.name, () => {
         flagState: "on",
       },
     ]);
-    assert.equal(removeUnusedImports.mock.calls.length, 1);
+    assert.equal(removeUnusedImports.mock.calls.length, 4);
     assert.equal(applyMigration.mock.calls.length, 1);
   });
 
@@ -183,7 +183,7 @@ describe(createRemoveFlag.name, () => {
         flagState: "off",
       },
     ]);
-    assert.equal(removeUnusedImports.mock.calls.length, 1);
+    assert.equal(removeUnusedImports.mock.calls.length, 4);
     assert.equal(applyMigration.mock.calls.length, 1);
   });
 
