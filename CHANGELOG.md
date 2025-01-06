@@ -1,5 +1,19 @@
 # flagfrog
 
+## 0.1.0
+
+### Minor Changes
+
+- 237cb03: docs: add readme
+
+### Patch Changes
+
+- f08a25e: chore(deps): update dependency esbuild to v0.24.2
+- c64e1e9: refactor: change args and props name
+- 28842ec: fix(deps): update dependency inquirer to v12.3.0
+- 6424bef: chore(deps): update dependency @changesets/cli to v2.27.11
+- 144e1ff: fix(deps): update dependency ts-morph to v25
+
 ## 0.0.4
 
 ### Patch Changes
