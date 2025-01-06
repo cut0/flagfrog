@@ -1,5 +1,11 @@
 # flagfrog
 
+## 0.1.1
+
+### Patch Changes
+
+- afdfad7: update: exploration time
+
 ## 0.1.0
 
 ### Minor Changes
