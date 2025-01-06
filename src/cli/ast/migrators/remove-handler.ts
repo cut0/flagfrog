@@ -5,12 +5,12 @@ import { FLAG_HANDLER } from "../../constants";
 type Args = {
   source: SourceFile;
   flag: string;
-  actionName: "enableAction" | "disableAction";
+  flagState: "on" | "off";
 };
 
 export const createRemoveFlagHandler =
   (_: Project) =>
-  ({ source, flag, actionName }: Args) => {
+  ({ source, flag, flagState }: Args) => {
     source.forEachDescendant((node) => {
       if (node.getKind() === SyntaxKind.CallExpression) {
         const callExpression = node.asKindOrThrow(SyntaxKind.CallExpression);
@@ -56,14 +56,14 @@ export const createRemoveFlagHandler =
             }
             {
               const targetProperty = properties.find(
-                (prop) => prop?.name === actionName,
+                (prop) => prop?.name === flagState,
               );
               if (targetProperty == null || targetProperty.value == null) {
-                throw new Error(`${actionName} is required`);
+                throw new Error(`${flagState} is required`);
               }
               /**
                * NOTE:
-               * - from: flagHandler({ enableAction: handleExample });
+               * - from: flagHandler({ on: handleExample });
                * - to: handleExample();
                */
               if (targetProperty.value.getKind() === SyntaxKind.Identifier) {
@@ -78,7 +78,7 @@ export const createRemoveFlagHandler =
                   SyntaxKind.VariableDeclaration;
                 /**
                  * NOTE:
-                 * - from: const flag = flagHandler({ enableAction: () => handleExample() });
+                 * - from: const flag = flagHandler({ on: () => handleExample() });
                  * - to: cosnt flag = (() => handleExample())();
                  */
                 if (hasVariable) {
@@ -90,7 +90,7 @@ export const createRemoveFlagHandler =
                 }
                 /**
                  * NOTE:
-                 * - from: flagHandler({ enableAction: () => { handleExample(); handleExample2(); } });
+                 * - from: flagHandler({ on: () => { handleExample(); handleExample2(); } });
                  * - to: handleExample(); handleExample();
                  */
                 const statement = targetProperty.value

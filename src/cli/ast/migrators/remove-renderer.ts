@@ -5,12 +5,12 @@ import { FLAG_RENDERER } from "../../constants";
 type Args = {
   source: SourceFile;
   flag: string;
-  propName: "enableComponent" | "disableComponent";
+  flagState: "on" | "off";
 };
 
 export const createRemoveFlagRenderer =
   (_: Project) =>
-  ({ source, flag, propName }: Args) => {
+  ({ source, flag, flagState }: Args) => {
     source.forEachDescendant((node) => {
       if (node.getKind() === SyntaxKind.JsxSelfClosingElement) {
         const jsxElement = node.asKindOrThrow(SyntaxKind.JsxSelfClosingElement);
@@ -67,9 +67,9 @@ export const createRemoveFlagRenderer =
             }
           }
           {
-            const targetAttr = attrs.find((prop) => prop?.name === propName);
+            const targetAttr = attrs.find((prop) => prop?.name === flagState);
             if (targetAttr == null || targetAttr?.value == null) {
-              throw new Error(`${propName} prop is required`);
+              throw new Error(`${flagState} prop is required`);
             }
 
             if (targetAttr.value.getKind() === SyntaxKind.JsxExpression) {
@@ -79,7 +79,7 @@ export const createRemoveFlagRenderer =
               const child = jsxExpression.getExpression();
               /**
                * NOTE:
-               * - from: <FlagRenderer enableComponent={"Hoge"} />
+               * - from: <FlagRenderer on={"Hoge"} />
                * - to: Hoge
                */
               if (child?.getKind() === SyntaxKind.StringLiteral) {
@@ -90,7 +90,7 @@ export const createRemoveFlagRenderer =
               }
               /**
                * NOTE:
-               * - from: <FlagRenderer enableComponent={<Hoge />} />
+               * - from: <FlagRenderer on={<Hoge />} />
                * - to: <Hoge />
                */
               if (
@@ -105,7 +105,7 @@ export const createRemoveFlagRenderer =
               /**
                * NOTE:
                * ohters
-               * - from: <FlagRenderer enableComponent={Hoge} />
+               * - from: <FlagRenderer on={Hoge} />
                * - to: <>{Hoge}</>
                */
               jsxElement.replaceWithText(`<>${jsxExpression.getText()}</>`);
@@ -113,7 +113,7 @@ export const createRemoveFlagRenderer =
             }
             /**
              * NOTE:
-             * - from: <FlagRenderer enableComponent="example" />
+             * - from: <FlagRenderer on="example" />
              * - to: example
              */
             jsxElement.replaceWithText(

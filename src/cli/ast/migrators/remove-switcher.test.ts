@@ -18,13 +18,13 @@ describe(createRemoveFlagSwitcher.name, () => {
         createRemoveFlagSwitcher(project)({
           source,
           flag: "test",
-          optionName: "enableOption",
+          flagState: "on",
         }),
       /name is required/,
     );
   });
 
-  test("Should throw an error if enableOption is missing", () => {
+  test("Should throw an error if on is missing", () => {
     const project = new Project();
     const source = project.createSourceFile(
       "test.ts",
@@ -38,25 +38,25 @@ describe(createRemoveFlagSwitcher.name, () => {
         createRemoveFlagSwitcher(project)({
           source,
           flag: "test",
-          optionName: "enableOption",
+          flagState: "on",
         }),
-      /enableOption is required/,
+      /on is required/,
     );
   });
 
-  test("Should replace flagSwitcher with enableOption function call", () => {
+  test("Should replace flagSwitcher with on function call", () => {
     const project = new Project();
     const source = project.createSourceFile(
       "test.ts",
       `
-    const flag = flagSwitcher({ name: "test", enableOption: option });
+    const flag = flagSwitcher({ name: "test", on: option });
   `,
     );
 
     createRemoveFlagSwitcher(project)({
       source,
       flag: "test",
-      optionName: "enableOption",
+      flagState: "on",
     });
 
     const result = source.getText();
@@ -68,20 +68,20 @@ describe(createRemoveFlagSwitcher.name, () => {
     const source = project.createSourceFile(
       "test.ts",
       `
-    flagSwitcher({ name: "test", enableOption: option });
+    flagSwitcher({ name: "test", on: option });
   `,
     );
 
     createRemoveFlagSwitcher(project)({
       source,
       flag: "other",
-      optionName: "enableOption",
+      flagState: "on",
     });
 
     const result = source.getText();
     assert.strictEqual(
       result.trim(),
-      'flagSwitcher({ name: "test", enableOption: option });',
+      'flagSwitcher({ name: "test", on: option });',
     );
   });
 });

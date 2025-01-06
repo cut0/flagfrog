@@ -24,14 +24,14 @@ export const createRemoveCommand = (context: Context) => {
           },
           {
             type: "list",
-            name: "enabled",
-            message: "Convert it to true or false?",
-            choices: ["enable", "disable"],
+            name: "flagState",
+            message: "Convert it to ON or OFF?",
+            choices: ["on", "off"],
           },
         ])
-        .then(({ flag, enabled }) => {
-          removeFlag({ flag, pathListByFlag, enabled: enabled === "enable" });
-          console.log(`Done! ${flag} is now ${enabled}`);
+        .then(({ flag, flagState }) => {
+          removeFlag({ flag, pathListByFlag, flagState });
+          console.log(`Done! ${flag} is now ${flagState}`);
         });
     });
 };

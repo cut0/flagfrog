@@ -1,14 +1,10 @@
 type Args<T, U> = {
   name: string;
   value: boolean;
-  enableOption: T;
-  disableOption: U;
+  on: T;
+  off: U;
 };
 
-export const flagSwitcher = <T, U>({
-  value,
-  enableOption,
-  disableOption,
-}: Args<T, U>): T | U => {
-  return value ? enableOption : disableOption;
+export const flagSwitcher = <T, U>({ value, on, off }: Args<T, U>): T | U => {
+  return value ? on : off;
 };

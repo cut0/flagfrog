@@ -3,12 +3,12 @@ import type { AstContext, PathListByFlag } from "../types";
 type Args = {
   flag: string;
   pathListByFlag: PathListByFlag;
-  enabled: boolean;
+  flagState: "on" | "off";
 };
 
 export const createRemoveFlag =
   ({ migrators }: AstContext) =>
-  ({ flag, pathListByFlag, enabled }: Args): void => {
+  ({ flag, pathListByFlag, flagState }: Args): void => {
     const pathList = pathListByFlag[flag];
 
     if (pathList == null) {
@@ -20,21 +20,21 @@ export const createRemoveFlag =
         migrators.removeFlagHandler({
           source,
           flag,
-          actionName: enabled ? "enableAction" : "disableAction",
+          flagState,
         });
       }
       if (toolMap.hasSwitcher) {
         migrators.removeFlagSwitcher({
           source,
           flag,
-          optionName: enabled ? "enableOption" : "disableOption",
+          flagState,
         });
       }
       if (toolMap.hasRenderer) {
         migrators.removeFlagRenderer({
           source,
           flag,
-          propName: enabled ? "enableComponent" : "disableComponent",
+          flagState,
         });
       }
     }
