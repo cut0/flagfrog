@@ -37,8 +37,8 @@ export const createRemoveFlag =
           flagState,
         });
       }
+      migrators.removeUnusedImports(source);
     }
 
-    migrators.removeUnusedImports();
     migrators.applyMigration();
   };

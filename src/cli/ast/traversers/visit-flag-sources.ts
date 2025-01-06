@@ -1,4 +1,5 @@
 import path from "node:path";
+import { globSync } from "glob";
 import type { Project, SourceFile } from "ts-morph";
 import {
   FLAG_HANDLER,
@@ -16,7 +17,13 @@ type Args = {
 export const createVisitFlagSources =
   (project: Project) =>
   ({ target, onVisit }: Args): void => {
-    project.addSourceFilesAtPaths(path.resolve(process.cwd(), target));
+    const filePaths = globSync(target, {
+      ignore: ["node_modules/**", "dist/**"],
+    });
+
+    for (const filePath of filePaths) {
+      project.addSourceFileAtPath(path.resolve(process.cwd(), filePath));
+    }
 
     for (const sourceFile of project.getSourceFiles()) {
       for (const importDeclaration of sourceFile.getImportDeclarations()) {
