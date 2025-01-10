@@ -1,5 +1,12 @@
 # flagfrog
 
+## 0.1.4
+
+### Patch Changes
+
+- af03447: fix(deps): update dependency glob to v11.0.1
+- 3b63c5b: chore(deps): update dependency typescript to v5.7.3
+
 ## 0.1.3
 
 ### Patch Changes
