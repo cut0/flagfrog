@@ -1,5 +1,15 @@
 # flagfrog
 
+## 0.1.4
+
+### Patch Changes
+
+- 5bf4b91: fix(deps): update dependency inquirer to v12.3.1
+- af03447: fix(deps): update dependency glob to v11.0.1
+- 3b63c5b: chore(deps): update dependency typescript to v5.7.3
+- 3c32fae: fix(deps): update dependency inquirer to v12.3.2
+- 84f1194: chore(deps): update pnpm to v9.15.4
+
 ## 0.1.3
 
 ### Patch Changes
