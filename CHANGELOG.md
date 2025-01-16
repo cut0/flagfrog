@@ -1,5 +1,11 @@
 # flagfrog
 
+## 0.1.5
+
+### Patch Changes
+
+- 5800cbb: chore: add peer deps
+
 ## 0.1.4
 
 ### Patch Changes
