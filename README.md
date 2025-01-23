@@ -23,8 +23,8 @@ The CLI provides the following commands:
 Displays where Flag is used
 
 ```shell
-# input
-npx flagfrog list <target>
+# input (Display the list of flags under src)
+npx flagfrog list './src/**/*.{ts,tsx}'
 ```
 
 ```shell
@@ -40,8 +40,8 @@ FlagName
 Remove Flag from files.
 
 ```shell
-# input
-npx flagfrog remove <target>
+# input (Remove Flag from files under src)
+npx flagfrog remove './src/**/*.{ts,tsx}'
 ```
 
 Remove the flag from the implementation as shown below.
