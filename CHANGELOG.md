@@ -1,5 +1,14 @@
 # flagfrog
 
+## 0.1.6
+
+### Patch Changes
+
+- 510f0d4: docs: update readme
+- 390b7c0: fix(deps): update dependency commander to v13.1.0
+- 514cc65: chore(deps): update node.js to v22.13.0
+- b1b26d6: chore(deps): update node.js to v22.13.1
+
 ## 0.1.5
 
 ### Patch Changes
