@@ -44,7 +44,7 @@
   "dependencies": {
     "commander": "13.1.0",
     "inquirer": "12.4.1",
-    "ts-morph": "25.0.0",
+    "ts-morph": "25.0.1",
     "glob": "11.0.1"
   },
   "devDependencies": {
