@@ -1,5 +1,14 @@
 # flagfrog
 
+## 0.1.7
+
+### Patch Changes
+
+- 0e3e263: chore(deps): update dependency @changesets/cli to v2.27.12
+- cb66195: chore(deps): update pnpm to v9.15.5
+- a8a6513: fix(deps): update dependency inquirer to v12.3.3
+- d69afb6: fix(deps): update dependency inquirer to v12.4.1
+
 ## 0.1.6
 
 ### Patch Changes
