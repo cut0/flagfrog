@@ -1,5 +1,14 @@
 # flagfrog
 
+## 0.1.8
+
+### Patch Changes
+
+- 9d620b4: chore(deps): update dependency @types/node to v22.10.10
+- 5a16611: chore(deps): update node.js to v22.14.0
+- 7f12834: chore(deps): update pnpm to v10.3.0
+- 8059206: chore(deps): update dependency @types/node to v22.13.1
+
 ## 0.1.7
 
 ### Patch Changes
