@@ -1,5 +1,14 @@
 # flagfrog
 
+## 0.1.9
+
+### Patch Changes
+
+- feb5e4e: chore(deps): update pnpm to v10.4.1
+- 362b63a: chore(deps): update pnpm to v10.4.0
+- 51552fb: chore(deps): update dependency @types/node to v22.13.2
+- 37d6908: fix(deps): update dependency inquirer to v12.4.2
+
 ## 0.1.8
 
 ### Patch Changes
