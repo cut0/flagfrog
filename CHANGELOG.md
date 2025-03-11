@@ -1,5 +1,15 @@
 # flagfrog
 
+## 0.1.10
+
+### Patch Changes
+
+- ce39db2: fix(deps): update dependency inquirer to v12.4.3
+- 7f7d029: chore(deps): update dependency @changesets/cli to v2.28.0
+- aa9aa2d: chore(deps): update dependency typescript to v5.8.2
+- 61b3a73: chore(deps): update dependency esbuild to v0.25.1
+- f1e37f3: chore(deps): update dependency @changesets/cli to v2.28.1
+
 ## 0.1.9
 
 ### Patch Changes
