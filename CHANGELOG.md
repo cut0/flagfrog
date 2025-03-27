@@ -1,5 +1,11 @@
 # flagfrog
 
+## 0.1.11
+
+### Patch Changes
+
+- 890b2f0: chore(deps): update pnpm to v10.6.2
+
 ## 0.1.10
 
 ### Patch Changes
