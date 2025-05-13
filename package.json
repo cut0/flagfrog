@@ -54,7 +54,7 @@
     "@types/node": "22.13.2",
     "@types/react": "18.3.20",
     "@types/react-dom": "18.3.6",
-    "esbuild": "0.25.2",
+    "esbuild": "0.25.4",
     "tsx": "4.19.2",
     "typescript": "5.8.3"
   },
