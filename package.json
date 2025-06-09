@@ -45,7 +45,7 @@
     "commander": "13.1.0",
     "glob": "11.0.1",
     "inquirer": "12.5.2",
-    "ts-morph": "25.0.1"
+    "ts-morph": "26.0.0"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
