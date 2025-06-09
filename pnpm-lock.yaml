@@ -37,11 +37,11 @@ importers:
         specifier: 22.13.2
         version: 22.13.2
       '@types/react':
-        specifier: 18.3.20
-        version: 18.3.20
+        specifier: 18.3.23
+        version: 18.3.23
       '@types/react-dom':
-        specifier: 18.3.6
-        version: 18.3.6(@types/react@18.3.20)
+        specifier: 18.3.7
+        version: 18.3.7(@types/react@18.3.23)
       '@typescript/native-preview':
         specifier: 7.0.0-dev.20250523.1
         version: 7.0.0-dev.20250523.1
@@ -624,13 +624,13 @@ packages:
   '@types/prop-types@15.7.14':
     resolution: {integrity: sha512-gNMvNH49DJ7OJYv+KAKn0Xp45p8PLl6zo2YnvDIbTd4J6MER2BmWN49TG7n9LvkyihINxeKW8+3bfS2yDC9dzQ==}
 
-  '@types/react-dom@18.3.6':
-    resolution: {integrity: sha512-nf22//wEbKXusP6E9pfOCDwFdHAX4u172eaJI4YkDRQEZiorm6KfYnSC2SWLDMVWUOWPERmJnN0ujeAfTBLvrw==}
+  '@types/react-dom@18.3.7':
+    resolution: {integrity: sha512-MEe3UeoENYVFXzoXEWsvcpg6ZvlrFNlOQ7EOsvhI3CfAXwzPfO8Qwuxd40nepsYKqyyVQnTdEfv68q91yLcKrQ==}
     peerDependencies:
       '@types/react': ^18.0.0
 
-  '@types/react@18.3.20':
-    resolution: {integrity: sha512-IPaCZN7PShZK/3t6Q87pfTkRm6oLTd4vztyoj+cbHUF1g3FfVb2tFIL79uCRKEfv16AhqDMBywP2VW3KIZUvcg==}
+  '@types/react@18.3.23':
+    resolution: {integrity: sha512-/LDXMQh55EzZQ0uVAZmKKhfENivEvWz6E+EYzh+/MCjMhNsotd+ZHhBGIjFDTi6+fz0OhQQQLbTgdQIxxCsC0w==}
 
   '@typescript/native-preview-darwin-arm64@7.0.0-dev.20250523.1':
     resolution: {integrity: sha512-oWJMPD+lfH9/dvHhPSZdTv43lfyZGrn7crytefhkiQPSwP0MIUCpnDkofGP/ML1nv0xx0pwWhH+Ein88NW3LuA==}
@@ -1705,11 +1705,11 @@ snapshots:
 
   '@types/prop-types@15.7.14': {}
 
-  '@types/react-dom@18.3.6(@types/react@18.3.20)':
+  '@types/react-dom@18.3.7(@types/react@18.3.23)':
     dependencies:
-      '@types/react': 18.3.20
+      '@types/react': 18.3.23
 
-  '@types/react@18.3.20':
+  '@types/react@18.3.23':
     dependencies:
       '@types/prop-types': 15.7.14
       csstype: 3.1.3
