@@ -1,5 +1,22 @@
 # flagfrog
 
+## 0.1.11
+
+### Patch Changes
+
+- 12cfed2: chore(deps): update dependency typescript to v5.8.3
+- 2ed735e: chore: hell tsgo
+- 5357218: chore(deps): update dependency @types/react-dom to v18.3.6
+- ac69f1e: chore(deps): update dependency esbuild to v0.25.2
+- b2fb93b: chore(deps): update dependency @types/react to v18.3.20
+- 7c7363b: feat: Support Spread Transformation for flagSwitcher
+- bf12215: chore(deps): update pnpm to v10.7.0
+- 2fa4a0f: chore(deps): update pnpm to v10.8.0
+- 21a670c: chore(deps): update pnpm/action-setup action to v4
+- 890b2f0: chore(deps): update pnpm to v10.6.2
+- 8916a9d: chore(deps): update dependency @changesets/changelog-github to v0.5.1
+- c886e9b: fix(deps): update dependency inquirer to v12.5.2
+
 ## 0.1.10
 
 ### Patch Changes
