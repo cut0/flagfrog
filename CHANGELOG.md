@@ -1,5 +1,11 @@
 # flagfrog
 
+## 0.1.12
+
+### Patch Changes
+
+- 3015e87: chore: claude setup
+
 ## 0.1.11
 
 ### Patch Changes
