@@ -64,10 +64,31 @@ export const createRemoveFlagSwitcher =
                * NOTE:
                * - from: const flag = flagSwitcher({ on: option });
                * - to: const flag = option;
+               *
+               * Special case for spread syntax:
+               * - from: const res = [...flagSwitcher({ on: [1,2,3], off: [4,5,6] })];
+               * - to: const res = [1,2,3];
                */
-              callExpression.replaceWithText(
-                `${targetProperty.value.getText()}`,
-              );
+              const parent = callExpression.getParent();
+              if (parent?.getKind() === SyntaxKind.SpreadElement) {
+                // Handle spread syntax case
+                const spreadElement = parent.asKindOrThrow(
+                  SyntaxKind.SpreadElement,
+                );
+                const arrayLiteral = spreadElement.getParent();
+                if (
+                  arrayLiteral?.getKind() === SyntaxKind.ArrayLiteralExpression
+                ) {
+                  // Replace the entire array literal with the target property value
+                  arrayLiteral.replaceWithText(targetProperty.value.getText());
+                } else {
+                  // Fallback: just replace the spread element
+                  spreadElement.replaceWithText(targetProperty.value.getText());
+                }
+              } else {
+                // Normal case: replace the call expression
+                callExpression.replaceWithText(targetProperty.value.getText());
+              }
               return;
             }
           }
