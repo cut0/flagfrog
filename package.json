@@ -22,8 +22,8 @@
   "scripts": {
     "lint:check": "biome ci",
     "lint:fix": "biome check --fix",
-    "typecheck": "tsc --noEmit",
-    "build": "tsc -p ./tsconfig.build.json && tsx ./build.ts",
+    "typecheck": "tsgo --noEmit",
+    "build": "tsgo -p ./tsconfig.build.json && tsx ./build.ts",
     "cli:dev": "tsx ./src/cli/main.ts",
     "cli:prd": "node ./dist/cli/index.js",
     "test": "node --import tsx --test **/*.test.ts",
@@ -43,9 +43,9 @@
   ],
   "dependencies": {
     "commander": "13.1.0",
+    "glob": "11.0.1",
     "inquirer": "12.5.2",
-    "ts-morph": "25.0.1",
-    "glob": "11.0.1"
+    "ts-morph": "25.0.1"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
@@ -54,6 +54,7 @@
     "@types/node": "22.13.2",
     "@types/react": "18.3.20",
     "@types/react-dom": "18.3.6",
+    "@typescript/native-preview": "7.0.0-dev.20250523.1",
     "esbuild": "0.25.2",
     "tsx": "4.19.2",
     "typescript": "5.8.3"
@@ -61,5 +62,5 @@
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
   },
-  "packageManager": "pnpm@10.8.0+sha512.0e82714d1b5b43c74610193cb20734897c1d00de89d0e18420aebc5977fa13d780a9cb05734624e81ebd81cc876cd464794850641c48b9544326b5622ca29971"
+  "packageManager": "pnpm@10.11.0"
 }
