@@ -54,7 +54,7 @@
     "@types/node": "22.13.2",
     "@types/react": "18.3.20",
     "@types/react-dom": "18.3.6",
-    "@typescript/native-preview": "7.0.0-dev.20250523.1",
+    "@typescript/native-preview": "7.0.0-dev.20250615.1",
     "esbuild": "0.25.2",
     "tsx": "4.19.2",
     "typescript": "5.8.3"
